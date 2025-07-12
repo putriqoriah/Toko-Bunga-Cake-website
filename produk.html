@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Toko Bunga & Cake</title>
+    <title>Produk - Toko Bunga & Cake</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -25,76 +25,71 @@
     </header>
 
     <main>
+      <!-- Filter Kategori -->
+      <div class="filter-btns">
+        <button onclick="filterProduk('all')">Tampilkan Semua</button>
+        <button onclick="filterProduk('kue')">Kue</button>
+        <button onclick="filterProduk('bunga')">Bunga</button>
+        <button onclick="filterProduk('lainnya')">Lainnya</button>
+      </div>
+
+      <!-- Daftar Produk -->
       <section class="produk-container">
-        <!-- 1 -->
-        <div class="produk">
+        <!-- Kue -->
+        <div class="produk kue">
           <img src="image/Img_1.jpg" alt="Kue Coklat Lumer" />
           <h3>Kue Coklat Lumer</h3>
           <p>Rp 150.000</p>
-
           <a href="produk1.html" class="btn">Lihat Detail</a>
         </div>
 
-        <!-- 2 -->
-        <div class="produk">
+        <div class="produk kue">
           <img src="image/Img_2.jpg" alt="Kue Ulang Tahun Pinky" />
           <h3>Kue Ulang Tahun Pinky</h3>
           <p>Rp 175.000</p>
-
           <a href="produk2.html" class="btn">Lihat Detail</a>
         </div>
 
-        <!-- 3 -->
-        <div class="produk">
+        <div class="produk kue">
           <img src="image/Img_3.jpg" alt="Cupcake Ceria" />
           <h3>Cupcake Ceria</h3>
           <p>Rp 80.000</p>
-
           <a href="produk3.html" class="btn">Lihat Detail</a>
         </div>
 
-        <!-- 4 -->
-        <div class="produk">
+        <!-- Bunga -->
+        <div class="produk bunga">
           <img src="image/Img_4.jpg" alt="Bouquet Mawar Merah" />
           <h3>Bouquet Mawar Merah</h3>
           <p>Rp 200.000</p>
-
           <a href="produk4.html" class="btn">Lihat Detail</a>
         </div>
-
-        <!-- 5 -->
-        <div class="produk">
-          <img src="image/Img_5.jpg" alt="Buket Bunga Campuran" />
-          <h3>Buket Bunga Campuran</h3>
+        <div class="produk bunga">
+          <img src="image/Img_5.jpg" alt="Bouquet Bunga Campuran" />
+          <h3>Bouquet Bunga Campuran</h3>
           <p>Rp 320.000</p>
-
           <a href="produk5.html" class="btn">Lihat Detail</a>
         </div>
 
-        <!-- 6 -->
-        <div class="produk">
+        <div class="produk bunga">
           <img src="image/Img_6.jpg" alt="Kombinasi Kue & Bunga" />
-          <h3>Kue + Bunga Spesial</h3>
-          <p>Rp 320.000</p>
-
+          <h3>Kombinasi Kue & Bunga</h3>
+          <p>Rp 210.000</p>
           <a href="produk6.html" class="btn">Lihat Detail</a>
         </div>
 
-        <!-- 7 -->
-        <div class="produk">
+        <!-- Lainnya -->
+        <div class="produk lainnya">
           <img src="image/Img_7.jpg" alt="Lilin Ulang Tahun" />
           <h3>Lilin Ulang Tahun</h3>
           <p>Rp 25.000</p>
-
           <a href="produk7.html" class="btn">Lihat Detail</a>
         </div>
 
-        <!-- 8 -->
-        <div class="produk">
+        <div class="produk lainnya">
           <img src="image/Img_8.jpg" alt="Pita Dekoratif" />
           <h3>Pita Dekoratif</h3>
           <p>Rp 15.000</p>
-
           <a href="produk8.html" class="btn">Lihat Detail</a>
         </div>
       </section>
@@ -106,18 +101,32 @@
         tokobungacake@email.com
       </p>
     </footer>
+
+    <script>
+      function filterProduk(kategori) {
+        const produk = document.querySelectorAll(".produk");
+
+        produk.forEach((item) => {
+          if (kategori === "all") {
+            item.style.display = "block";
+          } else {
+            if (item.classList.contains(kategori)) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          }
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        filterProduk("all");
+      });
+    </script>
     <script src="keranjang.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         updateJumlahKeranjang();
-      });
-    </script>
-    <script>
-      const hamburger = document.getElementById("hamburger");
-      const navbar = document.getElementById("navbar");
-
-      hamburger.addEventListener("click", () => {
-        navbar.classList.toggle("active");
       });
     </script>
   </body>
